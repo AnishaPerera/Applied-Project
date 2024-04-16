@@ -1,0 +1,29 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  {{ "" | linebreaks }}
+  {{ "" | linebreaks }}
+
+
+  <div class="sign-up-section text-center">
+    <div class="welcome-back">
+      <h2>Welcome Back!</h2>
+      <p>If you are already a exisiting user please Sign In to your account</p>
+      <button class="btn btn-dark" type="submit" onclick=window.location.href="{% url 'signin' %}">Sign In</button>
+    </div>
+    <div class="form-container">
+      <h2>Create Account</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend>Your Details</legend>
+          {{ "" | linebreaks }}
+          {{ form|crispy }}
+        </fieldset>
+        <button class="btn" type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock content %}

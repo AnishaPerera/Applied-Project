@@ -1,0 +1,38 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+    <div class="main-container text-center">
+        <h2 class="services-header">OUR FEATURES & SERVICES</h2>
+
+        <div class="service-container">
+            <div class="service-box">
+                <h3 class="service-title">Device Identification</h3>
+                <p class="service-text">
+                    Our service identifies all Internet of Things (IoT) devices on your home network, cataloging their make, model, and software version. This step is vital for securing your smart home, laying the foundation for a detailed security analysis and ensuring every device is accounted for and protected.
+                </p>
+            </div>
+            
+            <div class="service-box">
+                <h3 class="service-title">Vulnerability Assessment</h3>
+                <p class="service-text">
+                    After identifying IoT devices, we scan them for known security vulnerabilities, 
+                    providing details on the severity and recommendations for mitigation through updates or configuration changes. 
+                    This proactive step strengthens your smart home against potential breaches.
+                </p>
+            </div>
+            
+            <div class="service-box">
+                <h3 class="service-title">IoT Solutions</h3>
+                <p class="service-text">
+                    Based on our identification and vulnerability assessment, 
+                    we offer tailored security solutions for your smart home, suggesting firmware updates, 
+                    configuration tweaks, and security best practices. 
+                    Our goal is to enhance your IoT security and equip you with strategies for safe future deployments.
+                </p>
+            </div>
+        </div>
+
+        <a href="{% url 'signin' %}" class="get-started-btn">Get Started</a>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,111 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('images/background.jpg');
+    background-size: cover; 
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+   
+}
+
+nav a.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ul.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+
+ul.menu li a {
+    background-color: #fff; 
+    color: #000; 
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 5px; 
+    border-radius: 5px; 
+}
+
+ul.menu li a:hover {
+    background-color: #eee; 
+    color: #333; 
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    padding: 2rem;
+}
+
+.main-content h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.main-content p {
+    color: #ffffff;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.main-content a {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.main-content a:hover {
+    background-color: #333;
+    color: #ffffff;
+}
+
+.user-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown-toggle {
+    margin: 0 5px; /* Adjust the margin as needed */
+    line-height: 0.7em;
+    
+}
+
+

@@ -1,0 +1,33 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container text-center">
+    <div class="login-section">
+        <h2>Login to Your Account</h2>
+        {{ "" | linebreaks }}
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend>Your Details</legend>
+                {{ "" | linebreaks }}
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-dark" type="submit">Log In</button>
+            </div>
+        </form>
+        
+        {{ "" | linebreaks }}
+        <a href="{% url 'password_reset' %}" class="forgot-password">Forgot Password?</a>
+        
+    </div>
+    <div class="signup-section">
+        <h2>New Here?</h2>
+        <p>Sign up and secure your home technologies from outside threats!</p>
+        <a href= "{% url 'signup' %}" >Sign Up</a>
+        
+    </div>
+</div>
+
+{% endblock content %}

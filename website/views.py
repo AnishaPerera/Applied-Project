@@ -1,16 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 # Create your views here.
 
 def home(request):
-    return HttpResponse('Home Page')
+    return render(request, 'website/home.html')
 
-def signup(request):
-    return HttpResponse('Sign Up Page')
-
-def signin(request):
-    return HttpResponse('Sign In Page')
+def services(request):
+    return render(request, 'website/services.html')
 
 def about(request):
-    return HttpResponse('About Page')
+    return render(request, 'website/about.html')
