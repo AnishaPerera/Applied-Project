@@ -11,4 +11,12 @@ Use user_logins.txt file details for user sign in
 
 Note :-
 
-If unable to import using pgadmin in postgresql, use the SQL shell(psql) with restore command for import
+If unable to import using pgadmin in postgresql, use the SQL shell(psql) with commands below for import
+
+
+psql -U user_name -W -d db_name -f vulnerabilitiesDB.sql
+
+psql -U user_name -W -d db_name -f users.sql
+
+
+(replace user_name with your postgres username and db_name with your database name)
