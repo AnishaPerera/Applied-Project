@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Secure Home</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align text to the left */
+            justify-content: center;
+            text-align: left; /* Align text to the left */
+        }
+
+        .results-container {
+            width: 80%;
+            max-width: 600px; /* Limiting width for better readability */
+            margin: 0 auto; /* Centering the container */
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc; /* Border between sections */
+            padding-bottom: 20px; /* Add some padding below each section */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .result-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #000000; /* Label text color */
+            margin-bottom: 5px; /* Add space between label and explanation */
+        }
+
+
+        .result-value {
+            font-size: 1rem;
+            color: #000000; /* Value text color */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class = "result-item">
+        <p>Disclaimer:<br>
+
+            While our platform is dedicated to identifying vulnerabilities and recommending fixes, 
+            it is essential to note that we do not automatically update or repair devices. 
+            Users or professionals must manually apply the suggested solutions. 
+            We strongly advise consulting professional parties to mitigate identified issues effectively. 
+            Our recommendations serve as guidelines, and individual circumstances may require tailored solutions.</p>
+    </div>
+    <br>
+    <h2 class="text-white text-center">{{ obj.cve_id }}</h2>
+
+    <div class="results-container">
+        <div class="result-item">
+            <div class="result-label">CVE ID (Unique identifier for the vulnerability)</div>
+            <div class="result-value">{{ obj.cve_id }}</div><br>
+        </div>
+        <div class="result-item">
+            <div class="result-label">CVSS Score (Numerical score reflecting the severity of the vulnerability)</div>
+            <div class="result-value">{{ obj.cvss_score }}</div><br>
+        </div>
+        <div class="result-item">
+            <div class="result-label">Description (Detailed description of the vulnerability)</div>
+            <div class="result-value">{{ obj.description }}</div><br>
+        </div>
+        <div class="result-item">
+            <div class="result-label">Published Date (Date when the vulnerability was first published)</div>
+            <div class="result-value">{{ obj.published_date }}</div><br>
+        </div>
+        <div class="result-item">
+            <div class="result-label">Base Severity (The base level of severity of the vulnerability)</div>
+            <div class="result-value">{{ obj.base_severity }}</div><br>
+        </div>
+    
+        <div class="result-item">
+            <div class="result-label">Potential Mitigations</div>
+    
+            {% if obj.mitigations|length > 4 %}
+                <div>{{ obj.mitigations }}</div>  
+                    
+            {% else %}
+                <div>Not Avaliable</div>      
+                
+            {% endif %}
+    
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+

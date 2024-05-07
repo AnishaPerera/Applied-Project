@@ -1,0 +1,17 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <h1 class="text-white">Confirm Delete Reply</h1>
+
+    <div class="replydelete-section text-center">
+        <h3>Are you sure you want to delete the reply "{{ reply.content }}"?</h3>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-dark btn-submit" type="submit">Delete</button>
+            <a href="{% url 'forumidspage' reply.comment.thread_id.pk %}">Cancel</a>
+        </form>
+    </div>
+
+{% endblock content %}

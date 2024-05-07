@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
     'users.apps.UsersConfig',
+    'search.apps.SearchConfig',
+    'forum.apps.ForumConfig',
+    'logs.apps.LogsConfig',
     'crispy_forms',
     'crispy_bootstrap5',
 ]
@@ -81,6 +84,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'users',
+        'USER': 'postgres',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+
+    'vulnerabilitiesDB': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vulnerabilitiesDB',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost',
@@ -130,11 +142,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+
+MEDIA_URL = '/media/'
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-LOGIN_REDIRECT_URL = 'homepage'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 LOGIN_URL = 'signin'
 
@@ -143,3 +159,5 @@ LOGOUT_REDIRECT_URL = 'homepage'
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+DATABASE_ROUTERS = ['search.router.vulnerabilitiesDB_router']

@@ -1,0 +1,31 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    
+    <br>
+    <h1 class="devicesearch text-center">DEVICE SEARCH</h1>
+    <br>
+    <br>
+    <p class="description text-center">
+        Welcome to the Smart Home Secure Search platform. Here you can find detailed information about various smart home devices. Simply enter the brand and firmware version in the fields below to access specifications, security details, and other relevant information. Start your search to enhance your smart home experience.
+    </p>
+    <br>
+    <a class=" fs-5 text-center text-white" href="{% url 'advanced_searchpage' %}"><- Use Advanced Search -></a>
+    <br>
+    <div class="search-container">
+        <div class="search-bar-container">
+            <form method="POST" class="search-bar text-white">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <button type="submit" class="search-button">
+                    <i class="fa fa-search"></i>Search
+                </button>
+                
+            </form>
+        </div>
+    </div>
+    <br>
+
+{% endblock content %}
+

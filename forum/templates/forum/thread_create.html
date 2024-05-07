@@ -1,0 +1,20 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<h2 class="text-white">Create a New Thread</h2>
+
+<div class="threadcreate-section text-center">
+    {% if user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-dark btn-submit" type="submit">Create</button>
+            <a class="text-black" href="{% url 'forumpage' %}">Cancel</a>
+
+        </form>
+    {% endif %}
+</div>
+
+{% endblock content %}

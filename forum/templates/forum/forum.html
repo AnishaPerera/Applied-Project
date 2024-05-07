@@ -1,0 +1,63 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+    <div class="page-title">DISCUSSIONS FORUM</div>
+    <div class="discussion-container">
+        <div class="discussion-header">
+            <div class="search-field">
+                <input type="text" placeholder="Search for discussions...">
+            </div>
+            <button class="threadsearch-btn btn btn-dark">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            <button class="create-button" onclick=window.location.href="{% url 'forumcreate' %}">+ Discussion</button>
+        </div>
+
+        <div class="announcement-section">
+            <div class="announcement-item">
+                <h>Latest Announcements</h>
+            </div>
+        </div>    
+        {% for thread in threads %}
+            {% if thread.author.is_superuser %}
+            <div class="discussion-item{{ forloop_counter }}"> 
+                    <a href="{% url 'forumidspage' thread.thread_id %}">{{ thread.title }}</a>
+
+                    <div class="preview">{{ thread.content|truncatewords:10 }}</div>
+            </div>
+            
+            {% endif %}
+      
+        {% empty %}
+            <div class="discussion-item">
+                <a>No threads available.</a>
+            </div>
+
+        {% endfor %}    
+        
+        <br>
+        <div class="announcement-section">
+            <div class="announcement-item">
+                <h>Latest Discussions</h>
+            </div>
+        </div>
+   
+        {% for thread in threads %}
+            {% if not thread.author.is_superuser %}
+                <div class="discussion-item{{ forloop_counter }}"> 
+                    <a href="{% url 'forumidspage' thread.thread_id %}">{{ thread.title }}</a>
+
+                    <div class="preview">{{ thread.content|truncatewords:10 }}</div>
+                </div>
+            {% endif %}
+                
+        {% empty %}
+        <div class="discussion-item">
+            <a>No threads available.</a>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+{% endblock content %}
+

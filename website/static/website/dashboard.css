@@ -1,0 +1,73 @@
+.sidebar {
+    background-color: #000000;
+    color: #ffffff;
+    width: 250px;
+    height: 100vh;
+    padding: 1rem;
+    top: 10px;
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sidebar .brand {
+    text-align: center;
+    font-weight: bold;
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+.sidebar .user-profile {
+    text-align: center;
+    border-bottom: 1px solid #4f4f4f;
+    padding-bottom: 2rem;
+}
+.sidebar .user-profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+.sidebar .user-profile h3 {
+    margin: 0;
+}
+.sidebar a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: background-color 0.3s;
+}
+.sidebar a i {
+min-width: 20px;
+text-align: center;
+margin-right: 20px;
+color: #ffffff; /* Set icon color to white */
+}
+
+.sidebar a:hover {
+    background-color: #333333;
+    color: var(--accent-color);
+}
+.sidebar .logout {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.sidebar .logout:hover {
+    background-color: #dddddd;
+}

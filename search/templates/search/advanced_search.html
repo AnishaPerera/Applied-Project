@@ -1,0 +1,100 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<br>
+<h1 class="devicesearch text-center">ADVANCED SEARCH</h1>
+<br>
+<p class="description  text-center">
+    Use our advanced search to pinpoint IoT vulnerabilities by brand, firmware version, CVE ID, and specific 
+    queries for effective security analysis.
+</p>
+<div class="search-container">
+    <div class="search-bar-container">
+        <form method="POST" class="search-bar text-white">
+            {% csrf_token %}
+            {{ form.brand|as_crispy_field }}
+            {{ form.firmware_version|as_crispy_field }}
+            {{ form.cveid|as_crispy_field }}
+            {{ form.userquery|as_crispy_field }}
+            <br>
+
+            <p>NVD Options (NVD - National Vulnerability Database (NIST) )</p>
+            {{ form.api_slider|as_crispy_field }}
+            {{ form.api_slider2|as_crispy_field }}
+            
+            <br>
+            <button type="submit" class="search-button">
+                <i class="fa fa-search"></i>Search
+            </button>
+        </form>
+    </div>
+</div>
+<br>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var apiCheckbox = document.getElementById('id_api_slider');
+        var apiCheckbox2 = document.getElementById('id_api_slider2');
+        var brandInput = document.getElementById('id_brand');
+        var firmVersionInput = document.getElementById('id_firmware_version');
+        var queryInput = document.getElementById('id_userquery');
+        var cveidInput = document.getElementById('id_cveid');
+        var brandDisabledPlaceholder = "Brand (Disabled for NVD Search)";
+        var firmVersionInputDisabledPlaceholder = "Firmware Version (Disabled for NVD Search)";
+        var queryDisabledPlaceholder = "Query (Disabled for NVD Search)";
+        var cveidDisabledPlaceholder = "CVE ID (Disabled for NVD Search)";
+
+        apiCheckbox.addEventListener('change', function() {
+            if (apiCheckbox.checked) {
+                brandInput.disabled = true;
+                firmVersionInput.disabled = true;
+                queryInput.disabled = true;
+                apiCheckbox2.disabled = true;
+                brandInput.value = '';
+                firmVersionInput.value = '';
+                queryInput.value = '';
+                brandInput.placeholder = brandDisabledPlaceholder;
+                firmVersionInput.placeholder = firmVersionInputDisabledPlaceholder;
+                queryInput.placeholder =queryDisabledPlaceholder;}
+
+            else {
+                brandInput.disabled = false;
+                firmVersionInput.disabled = false;
+                queryInput.disabled = false;
+                apiCheckbox2.disabled = false;
+                brandInput.placeholder = '';
+                firmVersionInput.placeholder = '';
+                queryInput.placeholder= '';
+            }
+        });
+            
+        apiCheckbox2.addEventListener('change', function() {
+            if (apiCheckbox2.checked) {
+                brandInput.disabled = true;
+                firmVersionInput.disabled = true;
+                cveidInput.disabled = true;
+                apiCheckbox.disabled = true;
+                brandInput.value = '';
+                firmVersionInput.value = '';
+                cveidInput.value = '';
+                brandInput.placeholder = brandDisabledPlaceholder;
+                firmVersionInput.placeholder = firmVersionInputDisabledPlaceholder;
+                cveidInput.placeholder =cveidDisabledPlaceholder;}
+
+            else {
+                brandInput.disabled = false;
+                firmVersionInput.disabled = false;
+                cveidInput.disabled = false;
+                apiCheckbox.disabled = false;
+                brandInput.placeholder = '';
+                firmVersionInput.placeholder = '';
+                cveidInput.placeholder= '';
+            }
+            
+        });
+    });
+
+</script>
+
+
+{% endblock content %}

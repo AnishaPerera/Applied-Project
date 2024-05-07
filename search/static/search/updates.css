@@ -1,0 +1,31 @@
+.updatesearch-section {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 60%;
+    text-align: center;
+    color: black;
+    margin: auto;
+}
+
+
+.updatesearch-section h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    padding-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+}
+
+.form-group {
+    margin-right: 10px;
+    text-align: center;
+}
+
+.form-group.col {
+    width: 45%; 
+}

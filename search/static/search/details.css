@@ -1,0 +1,74 @@
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    max-width: 800px;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    border-radius: 15px; /* Rounded corners for the container */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Soft shadow for depth */
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+    width: 100%;
+    border-bottom: 1px solid #888; /* Lighter line for elegance */
+}
+
+.result-label {
+    font-weight: 700; /* Bold for the label */
+    font-size: 1.2rem; /* Larger font size for headings */
+    margin-bottom: 4px; /* Space between label and explanation */
+}
+
+.result-explanation {
+    font-weight: 300; /* Lighter font weight for explanation */
+    font-size: 0.9rem; /* Smaller font size for explanations */
+    margin-bottom: 6px; /* Space before the value */
+}
+
+.result-value {
+    font-size: 1.1rem; /* Slightly larger font size for value */
+    padding-left: 20px; /* Indent the value for better readability */
+}
+
+.result-item:last-child {
+    border-bottom: none; /* Removes the line for the last item */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.75rem; /* Adjusted for mobile screens */
+        top: 10px;
+        left: 10px;
+    }
+
+    .results-container {
+        margin-top: 80px; /* Adjusted for mobile spacing */
+        padding: 15px;
+    }
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif; /* Using Roboto font here */
+    border-radius: 15px; /* Adjust the border-radius to control the roundness of the corners */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow effect */
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+    text-decoration: none;
+}

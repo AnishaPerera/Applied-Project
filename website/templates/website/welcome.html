@@ -1,0 +1,34 @@
+{% include "website/dashboard.html" %}
+{% block content %}
+
+<div class="contents">
+    <div class="welcome-section text-white">
+        <div class="welcome-message">
+            Welcome to SMART SECURE HOME, {{ user.username }}
+        </div>
+        <div class="button-container">
+            <button class="dashboard-button" onclick=window.location.href="{% url 'updatepage' %}">
+                RECENT UPDATES<br>
+                <span class="button-desc">Get Latest Updates</span>
+            </button>
+            <button class="dashboard-button" onclick=window.location.href="{% url 'searchpage' %}">
+                SEARCH<br>
+                <span class="button-desc">Search Your Devices</span>
+            </button>
+            <button class="dashboard-button" onclick=window.location.href="{% url 'forumpage' %}">
+                FORUM<br>
+                <span class="button-desc">Participate in community discussions</span>
+            </button>
+            <button class="dashboard-button" onclick=window.location.href="{% url 'historypage' %}">
+                RECENT SEARCHES<br>
+                <span class="button-desc">Your Recent Searches</span>
+            </button>
+            <button class="dashboard-button" onclick=window.location.href="{% url 'profile' %}">
+                PROFILE MANAGEMENT<br>
+                <span class="button-desc">Manage your settings and profile</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

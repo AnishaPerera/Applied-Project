@@ -1,0 +1,62 @@
+.contents {
+    margin-left: 250px;
+    padding: 2rem; /* Increased padding */
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.welcome-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 75px;
+    margin-bottom: auto;
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 0px;
+    font-weight: bold;
+}
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: auto;
+}
+.dashboard-button {
+    background: linear-gradient(145deg, #1c1c1c, #000000);
+    color: #ffffff;
+    border: none;
+    padding: 1rem; /* Increased padding */
+    font-size: 0.9rem;
+    font-weight: 700; /* Bolder font for button text */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 1rem; /* More space between buttons */
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow */
+}
+.dashboard-button:hover {
+    background: linear-gradient(145deg, #333333, #1c1c1c);
+    transform: scale(1.05); /* Grow effect on hover */
+    color: var(--accent-color);
+}
+.button-desc {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: #ffffff;
+    font-weight: 400;
+    opacity: 0.85;
+}
+.dashboard-button:hover .button-desc {
+    color: var(--accent-color); /* Accent color for descriptions on hover */
+}

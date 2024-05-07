@@ -1,0 +1,63 @@
+{% extends "website/base.html" %}
+{% block content %}
+    
+    <div class="page-title">Thread Detail</div>
+    <div class="comments-container">
+        <a href="{% url 'forumpage' %}" class="text-white"><i class="fas fa-arrow-left"></i> Go to Discussions</a>
+
+        <div class="sticky-header text-white">
+            <h2>{{ thread.title }}</h2>
+            <p>{{ thread.content|linebreaksbr }}</p>
+            <br>
+            <p><strong>Author: </strong><img src="{{ thread.author.profile.image.url }}" alt="User" class="comment-profile-pic">{{ thread.author }}</p>
+            <p><strong>Creation Date:</strong> {{ thread.creation }}</p>
+            {% if user.is_authenticated and user == thread.author %}
+                <a href="{% url 'forumedit' thread.thread_id %}" class="icon-button edit-button"><i class="fas fa-pencil-alt"></i></a>
+                <a href="{% url 'forumdelete' thread.thread_id %}" class="icon-button delete-button"><i class="fas fa-trash"></i></a>
+            {% endif %}
+        </div>
+
+        <div class="add-comment-container">
+            <input placeholder="Add a comment..." class="comment-input" onclick=window.location.href="{% url 'addcomment' thread.thread_id %}"></input>
+        </div>
+        
+        <br>
+        {% for comment in thread.comment_set.all %}
+        <div class="comments-list{ forloop_counter }">
+            <div class="comment">
+                <img src="{{ comment.author.profile.image.url }}" alt="User" class="comment-profile-pic">
+                <div class="comment-body">
+                    <span class="comment-text">{{ comment.author }}: {{ comment.content }}</span>
+                </div>
+                <span class="comment-timestamp">{{ comment.creation }}</span>
+                {% if user.is_authenticated and user == comment.author %}
+                    <a href="{% url 'editcomment' comment.pk %}" class="icon-button edit-button"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="{% url 'deletecomment' comment.pk %}" class="icon-button delete-button"><i class="fas fa-trash"></i></a>
+                {% endif %}
+                <button class="reply-button" onclick=window.location.href="{% url 'addreply' comment.id %}">Reply</button>    
+            </div>
+            
+            {% for reply in comment.reply_set.all %}
+            <div class="replies-section{ forloop_counter }">
+                <div class="reply text-white">
+                    <img src="{{ comment.author.profile.image.url }}" alt="User" class="comment-profile-pic">
+                    <span class="reply-body">{{ reply.author }}: {{ reply.content }} </span>
+                    <span class="comment-timestamp">{{ reply.creation }}</span>
+                    {% if user.is_authenticated and user == reply.author %}
+                        <a href="{% url 'editreply' reply.pk %}" class="icon-button edit-button"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{% url 'deletereply' reply.pk %}" class="icon-button delete-button"><i class="fas fa-trash"></i></a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <br>
+            </div>
+
+        {% endfor %}
+
+        
+        <div class="separating-line"></div>
+        
+    </div>
+
+{% endblock content %}
+

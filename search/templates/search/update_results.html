@@ -1,0 +1,17 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+<div class="searchs">
+  <h1 class="text-center">Results</h1>
+  <br>
+    <ul>  
+        {% for item in results %}      
+            <li>CVE ID: {{ item.cve_id }}</li>
+            <li>Published Date: {{ item.cve_published }}</li>
+            <li>Description: {{ item.cve_description }}</li>
+            <br>
+        {% endfor %} 
+    </ul>
+</div>
+
+{% endblock content %}

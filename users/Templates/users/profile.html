@@ -3,12 +3,18 @@
 {% block content %}
 
     <div class="profile-section text-center">
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
           <legend>Your Profile</legend>
           {{ "" | linebreaks }}
+          <p class="fs-5">Profile Photo</p>
+          <div class="media">
+            <img class="rounded-circle img-fluid account-image"  style="max-width: 200px; max-height: 200px;" src="{{ user.profile.image.url }}" alt="Specific size image">
+          </div>
+          {{ "" | linebreaks }}
           {{ userform|crispy }}
+          {{ profileform|crispy }}
         </fieldset>
         <div class="form-group">
           {{ "" | linebreaks }}

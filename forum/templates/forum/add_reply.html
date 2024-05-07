@@ -1,0 +1,22 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<h1>Add Reply</h1>
+
+<div class="addreply-section text-center">
+    {% if user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-dark btn-submit" type="submit">Add Reply</button>
+            <a class="text-black" href="{% url 'forumidspage' comment.thread_id.pk %}">Cancel</a>
+
+        </form>
+    {% endif %}
+</div>
+
+{% endblock content %}
+
+

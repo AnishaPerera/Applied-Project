@@ -30,9 +30,18 @@
                     Our goal is to enhance your IoT security and equip you with strategies for safe future deployments.
                 </p>
             </div>
+
+            <div class="service-box"">
+                <h3 class="service-title">User Agreement Analysis</h3>
+                <p class="service-text">
+                    Automated analysis of vulnerabilities in user agreements, helping users understand and navigate the vulnerabilities more effectively. This will be a future implementation.
+                </p>
+            </div>
         </div>
 
-        <a href="{% url 'signin' %}" class="get-started-btn">Get Started</a>
+        {% if not user.is_authenticated %}
+            <a href="{% url 'signin' %}" class="get-started-btn">Get Started</a>
+        {% endif %}
     </div>
 
 {% endblock content %}

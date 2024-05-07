@@ -1,0 +1,33 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+<div class="sidebar">
+    <div>
+        <div class="brand">
+            DASHBOARD
+        </div>
+        <div class="user-profile">
+            <img class="rounded-circle img-fluid" src="{{ user.profile.image.url }}" alt="Profile Picture">
+            <h3>{{ user.username }}</h3>
+        </div>
+        <a href="{% url 'updatepage' %}" title="Monitor and control your devices"><i class="fas fa-tachometer-alt"></i>RECENT UPDATES</a>
+        <a href="{% url 'searchpage' %}" title="Access and download your reports"><i class="fas fa-file-download"></i>SEARCH</a>
+        <a href="{% url 'forumpage' %}" title="Participate in community discussions"><i class="fas fa-comments"></i>FORUM</a>
+        <a href="{% url 'historypage' %}" title="Review your recent search history"><i class="fas fa-search"></i>RECENT SEARCHES</a>
+
+        <div class="dropend">
+            <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Manage your settings and profile">
+                <i class="fas fa-cog"></i>PROFILE MANAGEMENT</a>
+            <ul class="dropdown-menu text-center">
+                <li><a class="dropdown-item text-black" href="{% url 'profile' %}">Profile</a></li>
+                <li><a class="dropdown-item text-black" href="{% url 'change_password' %}">Change Password</a></li>
+            </ul>
+          </div>
+    </div>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button class="logout"><i class="fas fa-sign-out-alt"></i>Log Out</button>
+    </form>
+</div>
+
+{% endblock content %}

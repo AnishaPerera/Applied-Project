@@ -1,0 +1,16 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <h1 class="text-white">Edit Thread</h1>
+
+    <div class="threadedit-section text-center">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-submit btn-dark">Update</button>
+            <a class="text-black" href="{% url 'forumidspage' thread.thread_id %}">Cancel</a>
+        </form>
+    </div>
+
+{% endblock content %}

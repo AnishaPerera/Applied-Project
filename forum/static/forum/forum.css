@@ -1,0 +1,90 @@
+.page-title {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    margin: auto;
+    color: #ffffff;
+}
+.discussion-container {
+    background-color: rgb(255, 255, 255);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    max-width: 1000px;
+    margin: auto;
+    width: 100%;
+}
+.discussion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.create-button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    opacity: 0.9;
+}
+.discussion-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.discussion-item a {
+    font-size: 1.1em;
+    margin: 0;
+    color: #007bff;
+    font-weight: normal;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.preview {
+    color: #000000;
+    font-style: italic;
+    display: block;
+}
+.search-field {
+    position: relative;
+    flex-grow: 1;
+    margin-right: 10px;
+
+}
+.search-field input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 2px solid #050000;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+.search-field input::placeholder {
+    color: #ffffff;
+}
+.threadsearch-btn {
+    width: fit-content;
+    margin-right: 10px;
+}
+
+.threadsearch-btn:hover {
+    background-color: #555; /* Darker shade when hovered */
+    color: #ddd; /* Lighter icon color for better visibility */
+}
+
+.announcement-item {
+    padding: 10px;
+ color: #000; /* Black text */
+    font-size: 1.2rem; /* Further reduced font size */
+    font-weight: bold;
+    margin-top: -20px;
+}

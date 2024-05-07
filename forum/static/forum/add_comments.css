@@ -1,0 +1,10 @@
+.addcomment-section {
+    padding: 80px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: white; 
+}

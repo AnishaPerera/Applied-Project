@@ -1,0 +1,16 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+    <h1 class="text-white">Delete Thread</h1>
+
+    <div class="threaddelete-section text-center">
+        <h3>Are you sure you want to delete the thread "{{ thread.title }}"?</h3>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-dark btn-submit" type="">Yes, Delete</button>
+            <a class="text-black" href="{% url 'forumidspage' thread.thread_id %}">Cancel</a>
+        </form>
+    </div>
+
+{% endblock content %}

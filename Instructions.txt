@@ -1,0 +1,5 @@
+Install all the packages in requirements.txt using pip
+
+Import all the sql files in the databases folder (check readme)
+
+Start the website using runserver command in Django

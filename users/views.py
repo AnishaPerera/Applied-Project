@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserSignUpForm, UserUpdateForm
+from .forms import UserSignUpForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
@@ -27,18 +27,22 @@ def register(request):
 def profile(request):
     if request.method == 'POST':
         userform= UserUpdateForm(request.POST, instance=request.user)
+        profileform = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         
-        if userform.is_valid():
+        if userform.is_valid() and profileform.is_valid():
             userform.save()
+            profileform.save()
             messages.success(request, f'Your Account Details are Updated !!')
             return redirect('profile')
 
     else:
         userform= UserUpdateForm(instance=request.user)
+        profileform = ProfileUpdateForm(instance=request.user.profile)
                 
 
     context = {
         'userform': userform,
+        'profileform': profileform,
     }
 
     return render(request, 'users/profile.html', context)

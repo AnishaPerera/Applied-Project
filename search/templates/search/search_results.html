@@ -1,0 +1,21 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+<div class="searchs">
+  <h1 class="text-center">Search Results</h1>
+  <br>
+    <ul>
+      <br>  
+      {% for result in search_results %}
+          <li><a href="{% url 'detailspage'  result.cve_id %}">{{ result }}</a></li>
+          <br>
+      {% endfor %} 
+    </ul>
+    {% if messages %}
+      <h2>Cannot find your Device</h2>
+    {% endif %}
+
+    
+</div>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "website/base.html" %}
+{% block content %}
+    <div class="recent-searches">
+        <h1>Search History</h1>
+
+        <p class="description text-black">
+            Explore your recent searches below to revisit the most popular devices you've looked into.
+        </p>
+
+        <h2>Basic Search</h2>
+        {% if history %}
+            <ul>
+                {% for log in history %}
+                    <li>{{ log.brand }}, {{ log.firmware_version }}</li>
+                {% endfor %}
+
+            </ul>
+            {% if not show_all %}
+                <a href="?show_all=True">Show All</a>
+                <br>
+            {% endif %}
+        {% else %}
+            <p>No history available.</p>
+        {% endif %}
+
+        <br>
+        <h2>Advanced Search</h2>
+        <p>Format = [ brand, firmware_version, cve_id, userquery ]</p>
+        {% if adv_history %}
+            <ul>
+                {% for log in adv_history %}
+                    <li>[ {{ log.brand }}, {{ log.firmware_version }}, {{ log.cve_id }}, {{ log.userquery }} ]</li>
+                {% endfor %}
+            
+            </ul>
+            {% if not show_all %}
+                <a href="?show_all=True">Show All</a>
+            {% endif %}
+        {% else %}
+            <p>No history available.</p>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}
